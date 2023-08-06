@@ -1,0 +1,17 @@
+div {
+  text-align: center;
+}
+
+.submission,
+.instructions {
+  text-align: left;
+  margin-left: 20%;
+}
+
+.spacer {
+  height: 48px;
+}
+
+.your-name {
+  color: red;
+}
