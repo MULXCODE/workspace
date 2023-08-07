@@ -4,6 +4,7 @@ import {
     IFerryProvider,
     FerrySummary,
     FerryType,
+    FerryCargoSummary,
 } from "../interfaces/iferry.provider";
 import {
     IVehicleProvider,
@@ -18,48 +19,13 @@ export class FerryService implements IFerryProvider {
 
     GetFerry(): FerrySummary {
 
-
-        // TODO Use current Vehicle to get the correct Ferry type
-        const vehicleSize = () => {
-            const randomNumber = Math.floor(Math.random() * 2) + 1;
-
-            switch (randomNumber) {
-                case 1: {
-                    return {
-                        type: VehicleSize.small,
-                    };
-                }
-                case 2: {
-                    return {
-                        type: VehicleSize.large,
-                    };
-                }
-                default: {
-                    return {
-                        type: VehicleSize.small,
-                    }
-                }
-            };
-        }
-
-        const size = VehicleSize.large;
-        switch (size) {
-            // case VehicleSize.small: {
-            //     return {
-            //         type: FerryType.small,
-            //     };
-            // }
-            case VehicleSize.large: {
-                return {
-                    type: FerryType.large,
-                };
-            }
-            default: {
-                return {
-                    type: FerryType.small,
-                };
-            }
-        }
+        let ferry = new FerrySummary();
+        ferry.type = FerryType.small;
+        ferry.cargoCapacity = FerryCargoSummary.maxCapacity;
+        ferry.cargoFull = FerryCargoSummary.isFull;
+        ferry.cargoList = FerryCargoSummary.cargoList;
+        return ferry;
+        
     }
 }
 
